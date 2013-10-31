@@ -39,3 +39,4 @@ destroiVarLocal(ListaA,ListaV):-
 avalie(variavelLocal(Id), R, T):-
 	varLocal(Id, Bind),
 	avalie(Bind, R, T).
+
