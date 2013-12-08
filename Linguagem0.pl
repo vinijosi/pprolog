@@ -1,25 +1,24 @@
-:- include('TestesTipos.pl').
+:- include('Utilitarios.pl').
 %%%%%%%%%%%%%%%%%% Trata Constantes, Soma e Subtracao %%%%%%%%%%%%%%%%%%%%%%%%
 
-avalie(iConst(X), R, T):-
+avalie(inteiro(X), R, T, _, _):-
 	R is X,
 	T = 'inteiro'.
 	
-avalie(soma(Esq, Dir), R, T):-
-	avalie(Esq, E, Te),
-	avalie(Dir, D, Td),
+avalie(somar(Esq, Dir), R, T, Ai, Af):-
+	avalie(Esq, E, Te, Ai, Af),
+	avalie(Dir, D, Td, Ai, Af),
 	checaTipo(Te, Td, T),
 	(T == 'inteiro' ->
-	R is E + D;
-	write('Erro na Checagem de tipos '),
-	T = 'Quebra', fail).	
-	
+		R is E + D;
+		write('Erro na Checagem de tipos '),
+		T = 'Quebra', fail).		
 
-avalie(subtrai(Esq, Dir), R, T):-
-	avalie(Esq, E, Te),
-	avalie(Dir, D, Td),
+avalie(subtrair(Esq, Dir), R, T, Ai, Af):-
+	avalie(Esq, E, Te, Ai, Af),
+	avalie(Dir, D, Td, Ai, Af),
 	checaTipo(Te, Td, T),
 	(T == 'inteiro' ->
-	R is E - D;
-	write('Erro na Checagem de tipos '),
-	T = 'Quebra', fail).
+		R is E - D;
+		write('Erro na Checagem de tipos '),
+		T = 'Quebra', fail).

@@ -1,15 +1,16 @@
 :- include('Linguagem2.pl').
 
+%%%%%%%%%%%%%%%%%% Trata Declaração de Funções %%%%%%%%%%%%%%%%%%%%%%%%	
 
-%%%%%%%%%%%%%%%%%%%%%%%%% Chamada exemplo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% avalie(declaraFunc('Nome da Funcao', Corpo da Funcao, [argumentos] ), R, T).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+avalie(declaraFunc(N, C, Args), _, T, Ai, Af) :-
+	insereInicio((N,(C,Args)), Ai, Af),
+	T = 'declaraFunc'.
 
-avalie(declaraFunc(Id, Body, Argumentos), R, T):-
-	asserta(funcao(Id, Body, Argumentos)),
-	R = 'Funcao Armazenada'.
+avalie(aplicaFunc(N, Args), R, T, Ai, _) :-
+	buscaCorpo(N, Ai, C),
+	avalie(C, R, T, Args, _).
 
-
+/*
 %%%%%%%%%%%%%%%%%%%%%%%%% Chamada exemplo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % avalie(aplicaFunc('Nome da Funcao', ListadeValores), R, T). 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,3 +41,4 @@ avalie(variavelLocal(Id), R, T):-
 	varLocal(Id, Bind),
 	avalie(Bind, R, T).
 
+*/
