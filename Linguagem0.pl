@@ -11,7 +11,7 @@ avalie(somar(Esq, Dir), R, T, Ai, Af):-
 	checaTipo(Te, Td, T),
 	(T == 'inteiro' ->
 		R is E + D;
-		write('Erro na Checagem de tipos '),
+		write('Erro na Checagem de tipos SOMAR'),
 		T = 'Quebra', fail).		
 
 avalie(subtrair(Esq, Dir), R, T, Ai, Af):-
@@ -20,5 +20,5 @@ avalie(subtrair(Esq, Dir), R, T, Ai, Af):-
 	checaTipo(Te, Td, T),
 	(T == 'inteiro' ->
 		R is E - D;
-		write('Erro na Checagem de tipos '),
+		write('Erro na Checagem de tipos SUBTRAIR'),
 		T = 'Quebra', fail).

@@ -4,23 +4,11 @@ buscaCorpo(N, [(N,V,_)|_], V).
 buscaCorpo(N, [_|C], V) :- 
 	buscaCorpo(N, C, V).
 
-/*
-buscaArgumentos(N, [(N,_,A)|_], A).
-buscaArgumentos(N, [_|C], A) :- 
-	buscaArgumentos(N, C, A).
+extraiDeclaracao(N, [(N,C,Lv)|_], (N,C,Lv)).
+extraiDeclaracao(N, [_:T], Df) :-
+	extraiDeclaracao(N, T, Df).
 
-validaArgumentos([], []).
-validaArgumentos([(Nd,Td)|Cd], [(Ni,Ti)|Ci]) :-
-	(Nd == Ni, Td == Ti) ->
-		validaArgumentos(Cd, Ci);
-		(write('Erro na validação dos argumentos da função'),fail).
-
-criarAmbiente([], A).
-criarAmbiente([(N,C)|X], A) :- 
-	criarAmbiente(X, [(N,C,[])|A]).
-*/
-
-checaTipo(Esq,Dir, T):-		
+checaTipo(Esq,Dir, T) :-		
 	((Esq == 'inteiro',
 	Dir == 'inteiro') ->
 		T = 'inteiro';
