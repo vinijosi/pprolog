@@ -9,6 +9,35 @@ Tiago Lage Payne de Pádua 12/1042457
 Eduardo Alves Silva 09/0042760
 Victor Matheus da Silva Oliveira 09/0134842
 
+Funções implementadas:
+:- se
+:- maiorque
+:- let
+:- variavel
+:- declaraFunc
+:- aplicaFunc
+
+Basicamente foi refeita a linguagem 2 e linguagem 3 uma vez que foi construído um ambiente que serve 
+tanto para variáveis quanto para funções, tecnicamente um ambiente é uma lista de triplas que possuem
+o nome da atribuição (seja variável ou função), o segundo elemento da tripla é o corpo da função ou
+valor constante da variável, e o terceiro elemento da tripla é uma lista de tuplas de argumentos 
+formais se for uma função, contento o nome da variável e seu tipo, desta forma não foi preciso
+cria um ambiente para as funções e outro para as variáveis, uma vez que variáveis são funções 
+constantes sem argumentos.
+
+Exemplo de ambiente com a variável X inteira e a variável F booleana:
+[('X',inteiro(4),[]),('F',booleano('falso'),[])]
+
+Já uma função é declarada da seguinte forma no ambiente:
+Exemplo de ambiente com a função incremento: 
+[('Incremento',soma(variavel('X'),inteiro(1)),[('X','inteiro')])]
+
+Quando uma função é aplicada, é criado um novo ambiente interno à função de modo que este seja isolado do
+ambiente global, no entanto, para que se possa executar funções de forma recursiva, o ambiente interno da
+função é criado passando as variáveis de argumento e é copiada a declaração da própria função do ambiente
+global para o ambiente interno da função, assim, a função pode chamar a si mesma pois está declarada em
+seu ambiente.
+
 Exemplo de execução dos testes:
 
 $ swipl
