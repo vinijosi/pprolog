@@ -3,6 +3,12 @@ pprolog
 
 Implementação de um interpretador para uma linguagem de programação utilizando a semantica do Prolog 
 
+Alunos: 
+Vinicius Emiliano dos Santos 09/0135008
+Tiago Lage Payne de Pádua 12/1042457
+Eduardo Alves Silva 09/0042760
+Victor Matheus da Silva Oliveira 09/0134842
+
 Exemplo de execução dos testes:
 
 $ swipl
