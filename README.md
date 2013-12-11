@@ -16,6 +16,7 @@ Funções implementadas:
 :- variavel
 :- declaraFunc
 :- aplicaFunc
+:- Execução de várias linhas de código em lista
 
 Basicamente foi refeita a linguagem 2 e linguagem 3 uma vez que foi construído um ambiente que serve 
 tanto para variáveis quanto para funções, tecnicamente um ambiente é uma lista de triplas que possuem

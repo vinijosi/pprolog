@@ -1,6 +1,13 @@
 :- include('Utilitarios.pl').
 %%%%%%%%%%%%%%%%%% Trata Constantes, Soma e Subtracao %%%%%%%%%%%%%%%%%%%%%%%%
 
+avalie([I], R, T, Ai, Af):-
+    avalie(I, R, T, Ai, Af).
+
+avalie([I|Is], R, T, Ai, Af):-
+	avalie(I, _, _, Ai, Afi),
+	avalie(Is, R, T, Afi, Af).
+
 avalie(inteiro(X), R, T, _, _):-
 	R is X,
 	T = 'inteiro'.

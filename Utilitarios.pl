@@ -5,7 +5,7 @@ buscaCorpo(N, [_|C], V) :-
 	buscaCorpo(N, C, V).
 
 extraiDeclaracao(N, [(N,C,Lv)|_], (N,C,Lv)).
-extraiDeclaracao(N, [_:T], Df) :-
+extraiDeclaracao(N, [_|T], Df) :-
 	extraiDeclaracao(N, T, Df).
 
 checaTipo(Esq,Dir, T) :-		
